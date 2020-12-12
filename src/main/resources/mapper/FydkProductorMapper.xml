@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fydk.productone.mapper.FydkProductorMapper" >
+
+    <resultMap id="BaseResultMap" type="com.fydk.productone.bean.FydkProductor" >
+        <id column="productor_id" property="productorId" jdbcType="BIGINT" />
+        <result column="productor_name" property="productorName" jdbcType="VARCHAR" />
+        <result column="tel_number" property="telNumber" jdbcType="VARCHAR" />
+        <result column="level" property="level" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        productor_id, productor_name, tel_number, level
+    </sql>
+
+</mapper>

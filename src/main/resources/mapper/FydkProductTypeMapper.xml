@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fydk.productone.mapper.FydkProductTypeMapper" >
+
+    <resultMap id="BaseResultMap" type="com.fydk.productone.bean.FydkProductType" >
+        <id column="type_id" property="typeId" jdbcType="BIGINT" />
+        <result column="product_type_name" property="productTypeName" jdbcType="VARCHAR" />
+        <result column="level" property="level" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        type_id, product_type_name, level
+    </sql>
+
+</mapper>
