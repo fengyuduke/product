@@ -29,6 +29,7 @@ public class SwaggerConfig {
                 .build();
     }
 
+    
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("springboot利用swagger2构建RESTFULL风格API文档")

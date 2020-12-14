@@ -18,6 +18,7 @@ public class MybatisPlusConfig {
 		return page;
 	}
 
+    
    @Bean
    public static MapperScannerConfigurer mapperScannerConfigurer() {
        MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
