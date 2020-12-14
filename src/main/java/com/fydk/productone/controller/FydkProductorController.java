@@ -20,8 +20,6 @@ import com.fydk.productone.bean.FydkProductor;
 import com.fydk.productone.common.ResponseEx;
 import com.fydk.productone.common.ResponsePageEx;
 import com.fydk.productone.common.StringUtils;
-import com.fydk.productone.service.FydkProductService;
-import com.fydk.productone.service.FydkProductTypeService;
 import com.fydk.productone.service.FydkProductorService;
 
 import io.swagger.annotations.Api;
@@ -32,8 +30,8 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "生产者", tags = "生产者相关")
 @RestController
 @RequestMapping("/fydkProductor")
-public class FydkProductorController {
-	private final static Logger logger = LoggerFactory.getLogger(FydkProductTypeController.class);
+public class FydkProductorController  extends BaseController{
+	private final static Logger logger = LoggerFactory.getLogger(FydkProductorController.class);
 
 	@Autowired
 	private FydkProductorService fydkProductorService;
@@ -143,11 +141,14 @@ public class FydkProductorController {
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "productorName", value = "产品类别名称", required = false, dataType = "String", example = "1"),
 			@ApiImplicitParam(name = "level", value = "产品级别", required = false, dataType = "Long", example = "1"),
+			@ApiImplicitParam(name = "key", value = "key值", required = true, dataType = "String",example = "1"),
 			@ApiImplicitParam(name = "pageSize", value = "每页显示数量", required = true,  example = "1"),
 			@ApiImplicitParam(name = "pageIndex", value = "当前页", required = true,  example = "1"), })
 	@GetMapping("/selectFydkProductor")
 	public ResponsePageEx<Object> selectFydkProductor(@RequestParam(required = false) String productorName,
-			@RequestParam(required = false) String level, @RequestParam(required = true) int pageSize,
+			@RequestParam(required = false) String level, 
+			@RequestParam(required = true) String key, 
+			@RequestParam(required = true) int pageSize,
 			@RequestParam(required = true) int pageIndex) {
 		try {
 

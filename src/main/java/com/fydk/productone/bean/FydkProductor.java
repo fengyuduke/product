@@ -20,13 +20,23 @@ public class FydkProductor {
     private String productorName;
     
     private String telNumber;
+    
+    private String password;
 
     /**
      * 级别
      */
     private Integer level;
     
-    public String getTelNumber() {
+    public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getTelNumber() {
 		return telNumber;
 	}
 

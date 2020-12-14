@@ -1,6 +1,5 @@
 package com.fydk.productone.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +17,6 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.fydk.productone.bean.FydkProduct;
 import com.fydk.productone.bean.FydkProductType;
-import com.fydk.productone.bean.FydkProductor;
 import com.fydk.productone.common.ResponseEx;
 import com.fydk.productone.common.ResponsePageEx;
 import com.fydk.productone.common.StringUtils;
@@ -33,7 +31,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "产品类型",tags = "产品类型设置相关")
 @RestController
 @RequestMapping("/fydkProductType")
-public class FydkProductTypeController {
+public class FydkProductTypeController  extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(FydkProductTypeController.class);
 	@Autowired
 	private FydkProductTypeService fydkProductTypeService;

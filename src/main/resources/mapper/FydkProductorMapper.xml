@@ -6,11 +6,12 @@
         <id column="productor_id" property="productorId" jdbcType="BIGINT" />
         <result column="productor_name" property="productorName" jdbcType="VARCHAR" />
         <result column="tel_number" property="telNumber" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
         <result column="level" property="level" jdbcType="INTEGER" />
     </resultMap>
 
     <sql id="Base_Column_List" >
-        productor_id, productor_name, tel_number, level
+        productor_id, productor_name, tel_number, password, level
     </sql>
 
 </mapper>

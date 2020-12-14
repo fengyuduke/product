@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "产品", tags = "产品设置相关")
 @RestController
 @RequestMapping("/fydkProduct")
-public class FydkProductController {
+public class FydkProductController extends BaseController{
 
 	private final static Logger logger = LoggerFactory.getLogger(FydkProductController.class);
 	@Autowired
@@ -39,7 +39,9 @@ public class FydkProductController {
 	@ApiOperation(value = "新增一个商品")
 	@ApiImplicitParams({ @ApiImplicitParam(name = "productName", value = "产品名称", required = true, dataType = "String",example = "1"),
 			@ApiImplicitParam(name = "productCode", value = "产品编号", required = true, dataType = "String",example = "1"),
-			@ApiImplicitParam(name = "productType", value = "产品类型", required = true, dataType = "Long",example = "1"), })
+			@ApiImplicitParam(name = "productType", value = "产品类型", required = true, dataType = "Long",example = "1"),
+			
+			})
 	@PostMapping("/addFydkProduct")
 	public ResponseEx<Object> addFydkProduct(@RequestParam(required = true) String productName,
 			@RequestParam(required = true) String productCode, @RequestParam(required = true) Long productType) {

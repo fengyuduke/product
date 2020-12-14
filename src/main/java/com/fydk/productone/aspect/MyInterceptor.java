@@ -3,13 +3,19 @@ package com.fydk.productone.aspect;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
+
 @Component
 public class MyInterceptor implements HandlerInterceptor {
 
+	@Autowired
+	private RedisTemplate<String, Object> redisTemplate;
 	// @Resource
 	// private LogService logService;
 
@@ -30,15 +36,23 @@ public class MyInterceptor implements HandlerInterceptor {
 	// 进入 Handler方法之前执行
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-//		Admin admin = (Admin) request.getSession().getAttribute("admin");
-//		if (admin == null) {
-//			request.setAttribute("msg", "请先登录");
-//			request.getRequestDispatcher("/index/toLogin").forward(request, response);
-//			return false;
-//		} else {
-//			return true;
-//		}
-		return true;
+		
+		StringBuffer requestURL = request.getRequestURL();
+		
+		System.out.println("URL:"+requestURL);
+		System.out.println(request);
+		String key = (String)request.getParameter("key");
+		if (key == null) {
+			return false;
+		} else {
+			JSONObject jo = (JSONObject) redisTemplate.opsForValue().get(key);
+			
+			if(jo!= null){
+				return true;
+			}else {
+				return false;
+			}
+		}
 	}
 
 }
