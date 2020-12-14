@@ -1,6 +1,5 @@
 package com.fydk.productone.controller;
 
-import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
@@ -8,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.ResourceUtils;
 
 import com.fydk.productone.common.StringUtils;
 
@@ -127,32 +125,7 @@ public class BaseController {
     public Object getUser() {
         return request.getAttribute("user");
     }
-    
-
 	
-	/**
-	 * 
-	 * @Description : 返回WEB-INF的Path
-	 * @return 
-	 */
-	private String getWebInfoPath() {
-		String webinfoPath = "";
-		try {
-			webinfoPath = ResourceUtils.getURL("classpath:").getPath();
-			if (webinfoPath.endsWith("/classes/")) {
-				webinfoPath = webinfoPath.substring(0, webinfoPath.length() - 9);
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		if(StringUtils.isBlank(webinfoPath)){
-			throw new RuntimeException("获取WEB-INF路径失败");
-		}
-		
-		return webinfoPath;
-	}
-
     /**
      * 
      * @Description : 编码
