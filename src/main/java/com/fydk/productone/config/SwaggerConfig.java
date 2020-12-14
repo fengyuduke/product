@@ -21,6 +21,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket createRestApi() {
+    	// 123
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
