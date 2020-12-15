@@ -1,5 +1,7 @@
 package com.fydk.productone.aspect;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -48,6 +50,7 @@ public class MyInterceptor implements HandlerInterceptor {
 			JSONObject jo = (JSONObject) redisTemplate.opsForValue().get(key);
 			
 			if(jo!= null){
+				redisTemplate.opsForValue().set(key, jo,10,TimeUnit.MINUTES);
 				return true;
 			}else {
 				return false;

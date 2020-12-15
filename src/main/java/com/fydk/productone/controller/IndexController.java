@@ -1,5 +1,7 @@
 package com.fydk.productone.controller;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.fydk.productone.bean.FydkProductor;
 import com.fydk.productone.common.ResponseEx;
@@ -59,7 +62,7 @@ public class IndexController extends BaseController{
 			
 			entity.setPassword(null);
 			
-			redisTemplate.opsForValue().set(key, entity);
+			redisTemplate.opsForValue().set(key, entity,10,TimeUnit.MINUTES);
 			return ResponseEx.createSuccess(key);
 		}
 
@@ -67,16 +70,15 @@ public class IndexController extends BaseController{
 	
 	@ApiOperation(value = "登出")
 	@ApiImplicitParams({ 
-		@ApiImplicitParam(name = "tel", value = "手机号", required = true, dataType = "String",example = "1"),
-		@ApiImplicitParam(name = "password", value = "密码", required = false, dataType = "String",example = "1"),
+		@ApiImplicitParam(name = "key", value = "key值", required = true, dataType = "String",example = "1"),
 			})
 	@PostMapping("/loginOut")
-	public ResponseEx<Object> login(@RequestParam(required = true) String key) {
+	public ResponseEx<Object> loginOut(@RequestParam(required = true) String key) {
 		
-		FydkProductor entity = (FydkProductor) redisTemplate.opsForValue().get(key);
+		JSONObject entity =  (JSONObject) redisTemplate.opsForValue().get(key);
 		
 		if(entity != null) {
-			redisTemplate.opsForValue().set(key, null);
+			redisTemplate.delete(key);
 		}else {
 			return ResponseEx.createError("key值已过期");
 		}
