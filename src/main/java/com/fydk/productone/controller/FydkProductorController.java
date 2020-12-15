@@ -42,7 +42,7 @@ public class FydkProductorController  extends BaseController{
 			@ApiImplicitParam(name = "level", value = "级别", required = true, dataType = "String", example = "1"),
 			@ApiImplicitParam(name = "telNumber", value = "号码", required = true, dataType = "String", example = "1"), })
 	@PostMapping("/addFydkProductor")
-	public ResponseEx<Object> addFydkProductor(@RequestParam(required = true) String productorName,
+	public ResponseEx<Object> addFydkProductor(@RequestParam(required = true) String key,@RequestParam(required = true) String productorName,
 			@RequestParam(required = true) String telNumber, @RequestParam(required = true) String level) {
 		try {
 
@@ -79,7 +79,8 @@ public class FydkProductorController  extends BaseController{
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "productorId", value = "产品生产者ID", required = true, dataType = "Long", example = "1"), })
 	@DeleteMapping("/deleteFydkProductor")
-	public ResponseEx<Object> deleteFydkProductor(@RequestParam(required = true) Long productorId) {
+	public ResponseEx<Object> deleteFydkProductor(@RequestParam(required = true) Long productorId,
+			@RequestParam(required = true) String key) {
 		try {
 			fydkProductorService.deleteById(productorId);
 			return ResponseEx.createSuccess();
@@ -92,13 +93,16 @@ public class FydkProductorController  extends BaseController{
 
 	@ApiOperation(value = "更新商品生产者")
 	@ApiImplicitParams({
+			@ApiImplicitParam(name = "key", value = "key值", required = true, dataType = "String",example = "1"),
 			@ApiImplicitParam(name = "productorId", value = "产品生产者ID", required = true, dataType = "String", example = "1"),
 			@ApiImplicitParam(name = "productorName", value = "产品生产者名称", required = false, dataType = "String", example = "1"),
 			@ApiImplicitParam(name = "telNumber", value = "产品生产者号码", required = false, dataType = "String", example = "1"),
 			@ApiImplicitParam(name = "level", value = "级别", required = false, dataType = "String", example = "1"), })
 	@PostMapping("/updateFydkProductorType")
 	public ResponseEx<Object> updateFydkProductorType(@RequestParam(required = true) Long productorId,
-			@RequestParam(required = false) String productorName, @RequestParam(required = false) String telNumber,
+			@RequestParam(required = false) String productorName,
+			@RequestParam(required = true) String key,
+			@RequestParam(required = false) String telNumber,
 			@RequestParam(required = false) String level) {
 		try {
 
@@ -139,9 +143,9 @@ public class FydkProductorController  extends BaseController{
 
 	@ApiOperation(value = "商品生产者分页查询")
 	@ApiImplicitParams({
+			@ApiImplicitParam(name = "key", value = "key值", required = true, dataType = "String",example = "1"),
 			@ApiImplicitParam(name = "productorName", value = "产品类别名称", required = false, dataType = "String", example = "1"),
 			@ApiImplicitParam(name = "level", value = "产品级别", required = false, dataType = "Long", example = "1"),
-			@ApiImplicitParam(name = "key", value = "key值", required = true, dataType = "String",example = "1"),
 			@ApiImplicitParam(name = "pageSize", value = "每页显示数量", required = true,  example = "1"),
 			@ApiImplicitParam(name = "pageIndex", value = "当前页", required = true,  example = "1"), })
 	@GetMapping("/selectFydkProductor")

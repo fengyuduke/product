@@ -43,7 +43,7 @@ public class FydkProductController extends BaseController{
 			
 			})
 	@PostMapping("/addFydkProduct")
-	public ResponseEx<Object> addFydkProduct(@RequestParam(required = true) String productName,
+	public ResponseEx<Object> addFydkProduct(@RequestParam(required = true) String key,@RequestParam(required = true) String productName,
 			@RequestParam(required = true) String productCode, @RequestParam(required = true) Long productType) {
 		try {
 
@@ -75,7 +75,7 @@ public class FydkProductController extends BaseController{
 	@ApiOperation(value = "删除一个商品")
 	@ApiImplicitParams({ @ApiImplicitParam(name = "productId", value = "产品ID", required = true, dataType = "String",example = "1"), })
 	@DeleteMapping("/deleteFydkProduct")
-	public ResponseEx<Object> deleteFydkProduct(@RequestParam(required = true) Long productId) {
+	public ResponseEx<Object> deleteFydkProduct(@RequestParam(required = true) String key,@RequestParam(required = true) Long productId) {
 		try {
 			fydkProductService.deleteById(productId);
 			return ResponseEx.createSuccess();
@@ -92,7 +92,7 @@ public class FydkProductController extends BaseController{
 			@ApiImplicitParam(name = "productType", value = "产品类型", required = false, dataType = "Long",example = "1"),
 			@ApiImplicitParam(name = "productCode", value = "产品编码", required = false, dataType = "String",example = "1"), })
 	@PostMapping("/updateFydkProduct")
-	public ResponseEx<Object> updateFydkProduct(@RequestParam(required = true) Long productId,
+	public ResponseEx<Object> updateFydkProduct(@RequestParam(required = true) String key,@RequestParam(required = true) Long productId,
 			@RequestParam(required = false) String productName, @RequestParam(required = false) Long productType,
 			@RequestParam(required = false) String productCode) {
 		try {
@@ -137,7 +137,7 @@ public class FydkProductController extends BaseController{
 			@ApiImplicitParam(name = "pageSize", value = "每页显示数量", required = true,example = "1"),
 			@ApiImplicitParam(name = "pageIndex", value = "当前页", required = true,example = "1"), })
 	@GetMapping("/selectFydkProduct")
-	public ResponsePageEx<Object> selectFydkProduct(@RequestParam(required = false) String productName,
+	public ResponsePageEx<Object> selectFydkProduct(@RequestParam(required = true) String key,@RequestParam(required = false) String productName,
 			@RequestParam(required = false) Long productType, @RequestParam(required = true) int pageSize,
 			@RequestParam(required = true) int pageIndex) {
 		try {

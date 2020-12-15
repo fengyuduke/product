@@ -46,7 +46,7 @@ public class FydkProductTypeController  extends BaseController{
 		@ApiImplicitParam(name = "level", value = "级别", required = true, dataType = "String",example = "1"),
 			})
 	@PostMapping("/addFydkProductType")
-	public ResponseEx<Object> addFydkProductType(@RequestParam(required = true) String productTypeName,
+	public ResponseEx<Object> addFydkProductType(@RequestParam(required = true) String key,@RequestParam(required = true) String productTypeName,
 			@RequestParam(required = true) String level) {
 		try {
 
@@ -77,7 +77,7 @@ public class FydkProductTypeController  extends BaseController{
 	@ApiOperation(value = "删除一个商品类别")
 	@ApiImplicitParams({ @ApiImplicitParam(name = "productTypeId", value = "产品类别ID", required = true, dataType = "Long",example = "1"), })
 	@DeleteMapping("/deleteFydkProductType")
-	public ResponseEx<Object> deleteFydkProductType(@RequestParam(required = true) Long productTypeId) {
+	public ResponseEx<Object> deleteFydkProductType(@RequestParam(required = true) String key,@RequestParam(required = true) Long productTypeId) {
 		try {
 			fydkProductTypeService.deleteById(productTypeId);
 			
@@ -101,7 +101,7 @@ public class FydkProductTypeController  extends BaseController{
 			@ApiImplicitParam(name = "level", value = "级别", required = false, dataType = "String",example = "1"),
 	})
 	@PostMapping("/updateFydkProductType")
-	public ResponseEx<Object> updateFydkProductType(@RequestParam(required = true) Long productTypeId,
+	public ResponseEx<Object> updateFydkProductType(@RequestParam(required = true) String key,@RequestParam(required = true) Long productTypeId,
 			@RequestParam(required = false) String productTypeName, @RequestParam(required = false) String level) {
 		try {
 
@@ -142,7 +142,7 @@ public class FydkProductTypeController  extends BaseController{
 			@ApiImplicitParam(name = "pageSize", value = "每页显示数量", required = true,example = "1"),
 			@ApiImplicitParam(name = "pageIndex", value = "当前页", required = true,example = "1"), })
 	@GetMapping("/selectFydkProductType")
-	public ResponsePageEx<Object> selectFydkProductType(@RequestParam(required = false) String productTypeName,
+	public ResponsePageEx<Object> selectFydkProductType(@RequestParam(required = true) String key,@RequestParam(required = false) String productTypeName,
 			@RequestParam(required = false) String level, @RequestParam(required = true) int pageSize,
 			@RequestParam(required = true) int pageIndex) {
 		try {
