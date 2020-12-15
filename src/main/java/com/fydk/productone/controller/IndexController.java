@@ -2,7 +2,6 @@ package com.fydk.productone.controller;
 
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +13,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.fydk.productone.bean.FydkProductor;
 import com.fydk.productone.common.ResponseEx;
+import com.fydk.productone.common.StringUtils;
 import com.fydk.productone.service.FydkProductorService;
 import com.fydk.productone.util.MD5;
 
