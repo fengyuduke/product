@@ -53,7 +53,6 @@ public class MyInterceptor implements HandlerInterceptor {
 				redisTemplate.opsForValue().set(key, jo,10,TimeUnit.MINUTES);
 				return true;
 			}else {
-				
 				return false;
 			}
 		}
