@@ -21,3 +21,5 @@
 
 redis - 安装启动详解
 https://www.cnblogs.com/hunanzp/p/12304622.html 
+
+git clone 链接  回车
