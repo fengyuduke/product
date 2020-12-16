@@ -1,0 +1,23 @@
+阿里服务器信息
+公网IP：8.133.173.217
+私网IP：172.22.253.61
+
+账号：root
+密码：Lc20082001==
+
+
+腾讯服务器信息
+公网IP：121.4.64.161
+私网IP：172.17.0.2
+账号： root
+密码：Lc20082001==
+
+阿里数据库信息
+云数据库RDS
+地址：rm-uf6zk76064d7w040zto.mysql.rds.aliyuncs.com
+端口：3306
+账号：root
+密码：Lc20082001==
+
+redis - 安装启动详解
+https://www.cnblogs.com/hunanzp/p/12304622.html 
