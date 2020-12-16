@@ -22,4 +22,7 @@
 redis - 安装启动详解
 https://www.cnblogs.com/hunanzp/p/12304622.html 
 
+rabbitmq安装详解
+https://www.cnblogs.com/LiuFqiang/p/13791026.html
+
 git clone 链接  回车
