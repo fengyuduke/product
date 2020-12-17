@@ -30,7 +30,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		String[] excludes = new String[] {"/index", "/index/login",
 				 "/error","/static/**","/swagger-resources/**","/swagger-ui.html/**"
-				 ,"/webjars/**","/","/csrf/**"};
+				 ,"/webjars/**","/","/csrf/**","/test/**"};
 		
 		registry.addInterceptor(myInterceptor).addPathPatterns("/**")
 					.excludePathPatterns(excludes);
