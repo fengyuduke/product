@@ -24,6 +24,7 @@ https://www.cnblogs.com/hunanzp/p/12304622.html
 
 rabbitmq安装详解
 https://www.cnblogs.com/LiuFqiang/p/13791026.html
+rabbitmq 使用目的: 解耦、异步、消峰
 
 git clone 链接  回车
 rabbitmq使用
