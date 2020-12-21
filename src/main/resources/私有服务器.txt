@@ -21,6 +21,7 @@
 
 redis - 安装启动详解
 https://www.cnblogs.com/hunanzp/p/12304622.html 
+./usr/local/redis-5.0.7/bin/redis-server /usr/local/redis-5.0.7/redis.conf
 
 rabbitmq安装详解
 https://www.cnblogs.com/LiuFqiang/p/13791026.html
