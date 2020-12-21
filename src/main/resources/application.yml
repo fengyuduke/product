@@ -42,11 +42,11 @@ spring:
       min-idle: 0
     #redis配置结束
     blockWhenExhausted: true
-  rabbitmq:
-    host: 121.4.64.161
-    port: 5672
-    username: admin
-    password: admin
+#  rabbitmq:
+#    host: 121.4.64.161
+#    port: 5672
+#    username: admin
+#    password: admin
 mybatis-plus:
   # 指定sql映射文件位置
   mapper-locations: classpath*:mapper/*.xml
