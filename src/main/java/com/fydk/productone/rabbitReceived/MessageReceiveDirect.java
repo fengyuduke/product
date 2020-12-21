@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @author LuoC
  *
  */
-@Component
+//@Component
 public class MessageReceiveDirect {
 
     @RabbitListener(queues="sendMessage") //监听器监听指定的Queue

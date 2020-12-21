@@ -30,3 +30,11 @@ rabbitmq 使用目的: 解耦、异步、消峰
 git clone 链接  回车
 rabbitmq使用
 https://www.cnblogs.com/linyufeng/p/9885645.html
+启动
+systemctl start rabbitmq-server
+停止
+systemctl stop rabbitmq-server
+查看状态
+systemctl status rabbitmq-server
+设置开机自启动
+systemctl enable rabbitmq-server

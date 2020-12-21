@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author LuoC
  *
  */
-@Component
+//@Component
 public class MessageSenderTopic {
 	@Autowired
 	private AmqpTemplate template;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author LuoC
  *
  */
-@Component
+//@Component
 public class MessageReceiveFanout {
 
 	@RabbitListener(queues = "fanout.A")

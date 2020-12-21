@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @author luoC
  *
  */
-@Configuration
+//@Configuration
 public class SenderConfTopic {
 
         @Bean(name="message")

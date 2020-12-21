@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @author LuoC
  *
  */
-@Component
+//@Component
 public class MessageSenderDirect {
     @Autowired
     private AmqpTemplate template;
