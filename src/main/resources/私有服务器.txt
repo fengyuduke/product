@@ -21,8 +21,20 @@
 
 redis - 安装启动详解
 https://www.cnblogs.com/hunanzp/p/12304622.html 
+./usr/local/redis-5.0.7/bin/redis-server /usr/local/redis-5.0.7/redis.conf
 
 rabbitmq安装详解
 https://www.cnblogs.com/LiuFqiang/p/13791026.html
+rabbitmq 使用目的: 解耦、异步、消峰
 
 git clone 链接  回车
+rabbitmq使用
+https://www.cnblogs.com/linyufeng/p/9885645.html
+启动
+systemctl start rabbitmq-server
+停止
+systemctl stop rabbitmq-server
+查看状态
+systemctl status rabbitmq-server
+设置开机自启动
+systemctl enable rabbitmq-server
